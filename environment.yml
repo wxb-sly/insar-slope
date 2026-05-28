@@ -1,0 +1,37 @@
+name: insar_env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  # Pinned to 3.10 because MintPy's 'pysolid' dependency has Fortran/C-compiler
+  # collisions with Python 3.11 on Windows.
+  - python=3.10
+
+  # ========================================================
+  # INSTALLATION INSTRUCTION:
+  # Install mintpy first via conda-forge to resolve core
+  # C/Fortran bindings without conflicts:
+  #   conda install -c conda-forge mintpy -y
+  # Then install the remaining dependencies.
+  # ========================================================
+
+  # Core scientific stack required for plotting and geometries within MintPy
+  - jupyter
+  - ipykernel
+  - matplotlib
+  - numpy
+  - pandas
+
+  # The Core Payload (C-bound)
+  - mintpy
+  - h5py
+  - rasterio
+  - xarray
+  - geopandas
+
+  # The Cloud API Wrappers
+  - pip
+  - pip:
+    - asf_search
+    - hyp3_sdk
+    - -e .

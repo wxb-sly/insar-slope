@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "M9_insar"
+version = "0.1.0"
+description = "MODULE 13: SATELLITE GEODESY (InSAR FOUNDATIONS) - Area-wide satellite surveillance and Bayesian displacement forecasting pipeline."
+requires-python = ">=3.10"
+# Dependencies omitted for pip.
+# The geodetic engine (mintpy, h5py, rasterio) MUST be managed strictly via Conda
+# (conda-forge) to ensure Fortran/C-compiler stability and avoid GDAL conflicts.
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["core*", "data*", "training*"]
